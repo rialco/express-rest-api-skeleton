@@ -32,6 +32,12 @@ export class Server {
     this.express.use(router);
     registerRoutes(router);
 
+    // Catch not defined routes
+    this.express.use((req: Request, res: Response) => {
+      res.status(httpStatus.NOT_FOUND).json('Not found)');
+    });
+
+    // Catch server related errors
     this.express.use((err: Error, req: Request, res: Response) => {
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     });

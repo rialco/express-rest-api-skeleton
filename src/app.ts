@@ -10,10 +10,14 @@ export class App {
   }
 
   async stop() {
-    return this.server?.stop();
+    if (this.server) {
+      return this.server.stop();
+    }
   }
 
   get httpServer() {
-    return this.server?.getHttpServer();
+    if (this.server) {
+      return this.server.getHttpServer();
+    }
   }
 }
