@@ -1,4 +1,4 @@
-export abstract class ValueObject<T extends Object> {
+export abstract class ValueObject<T extends Record<string, unknown>> {
   private _value: T;
 
   constructor(value: T) {

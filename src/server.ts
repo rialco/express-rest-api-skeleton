@@ -34,7 +34,7 @@ export class Server {
 
     // Catch not defined routes
     this.express.use((req: Request, res: Response) => {
-      res.status(httpStatus.NOT_FOUND).json('Not found)');
+      res.status(httpStatus.NOT_FOUND).json('Not found');
     });
 
     // Catch server related errors
